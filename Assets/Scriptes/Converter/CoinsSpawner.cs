@@ -7,7 +7,6 @@ public class CoinsSpawner : MonoBehaviour
 {
     public event UnityAction<FrisbeeMover> CoinSpawnEnded;
     public event UnityAction SpawnEnded;
-    public event UnityAction GameOver;
 
     [SerializeField] private ParticleSystem _poofParticle;
     [SerializeField] private CoinPosition _target;
@@ -24,11 +23,8 @@ public class CoinsSpawner : MonoBehaviour
 
     public void SetCurrentCount(int accumulateCount)
     {
-        if(accumulateCount <= 0)
-        {
-            GameOver?.Invoke();
+        if (accumulateCount <= 0)
             return;
-        }
 
         _currentCountToMove = accumulateCount;
         _currentCountToSpawn = accumulateCount;
@@ -61,8 +57,13 @@ public class CoinsSpawner : MonoBehaviour
         {
             _poofParticle.Play();
             Invoke(nameof(StartMoveCoin), _poofParticle.main.duration);
-        }
-            
+        }   
+    }
+
+    public void Spawn(Coin template, Vector3 position, Quaternion rotation)
+    {
+        Coin newCoin = Instantiate(template, position, rotation);
+        newCoin.UsePhysic(true);
     }
 
     private void StartMoveCoin()

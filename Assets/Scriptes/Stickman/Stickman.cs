@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(StickmanAnimator), typeof(StickmanRotater), typeof(Bag))]
 
@@ -24,6 +25,8 @@ public abstract class Stickman : MonoBehaviour
     private Coroutine _startThrowFrisbee;
     private Coroutine _startThrowCoins;
 
+    private Material _material;
+
     protected StickmanAnimator Animator => _animator;
     protected StickmanRotater Rotater => _rotater;
     protected Bag Bag => _bag;
@@ -41,7 +44,7 @@ public abstract class Stickman : MonoBehaviour
 
     public void Action()
     {
-        if (_bag.FrisbeeMovers.Count <= 0)
+        if (_bag.FrisbeeMovers.Count <= 0 || EventSystem.current.IsPointerOverGameObject())
             return;
 
         if (_startThrowFrisbee == null && _startThrowCoins == null)

@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 6478082884298403000}
   - component: {fileID: 3511569679370487794}
   - component: {fileID: 4742425230908989232}
-  - component: {fileID: -1766564794301218224}
   - component: {fileID: 2134302299996498637}
   - component: {fileID: 5023315606018723537}
   - component: {fileID: 111193785832184589}
   - component: {fileID: 1308807288728420971}
+  - component: {fileID: -5082840668872311029}
   m_Layer: 3
   m_Name: CoinCopper
   m_TagString: Untagged
@@ -97,7 +97,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2330899005838621241}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -131,10 +131,10 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.2
+  m_Time: 0.3
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.2
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -197,19 +197,6 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!65 &-1766564794301218224
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2330899005838621241}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.8304753, y: 3.7100005, z: 0.8479713}
-  m_Center: {x: -0.01001507, y: 0.37000003, z: 0.00053112704}
 --- !u!54 &2134302299996498637
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -251,6 +238,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _amount: 1
+  _type: Copper
+  _coinAmountView: {fileID: 4688779618139370318, guid: 19ebb31293e1232478e7e9e35a310efa, type: 3}
 --- !u!114 &1308807288728420971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,5 +252,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef038f2bb3c26f4b8387a1ffbb36c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _aspectRatio: 5
+  _aspectRatio: 2.5
   _force: 13
+--- !u!65 &-5082840668872311029
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2330899005838621241}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1.0000001}
+  m_Center: {x: 0.00000005960464, y: 0, z: -0.00000008940696}

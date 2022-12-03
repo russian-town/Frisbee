@@ -6,9 +6,17 @@ public class Wallet : MonoBehaviour
     public event UnityAction<int> MoneyChanged;
     private const string MoneyKey = "Money";
 
-    [SerializeField] private CoinsChecker _coinsChecker;
+    [SerializeField] private bool _isClear;
 
     private int _money;
+
+    public int Money => _money;
+
+    private void OnValidate()
+    {
+        if (_isClear == true)
+            ClearSaveData();
+    }
 
     private void Start()
     {
@@ -18,22 +26,7 @@ public class Wallet : MonoBehaviour
         MoneyChanged?.Invoke(_money);
     }
 
-    private void OnEnable()
-    {
-        _coinsChecker.CoinEntered += OnCoinEntered;
-    }
-
-    private void OnDisable()
-    {
-        _coinsChecker.CoinEntered -= OnCoinEntered;
-    }
-
-    private void OnCoinEntered(int amount)
-    {
-        AddMoney(amount);
-    }
-
-    private void AddMoney(int money)
+    public void AddMoney(int money)
     {
         if (money <= 0)
             return;
@@ -44,9 +37,25 @@ public class Wallet : MonoBehaviour
         MoneyChanged?.Invoke(_money);
     }
 
+    public void DecreaseMoney(int value)
+    {
+        if (value <= 0)
+            return;
+
+        _money -= value;
+        SaveMoneyCount();
+
+        MoneyChanged?.Invoke(_money);
+    }
+
     private void SaveMoneyCount()
     {
         PlayerPrefs.SetInt(MoneyKey, _money);
         PlayerPrefs.Save();
+    }
+
+    public void ClearSaveData()
+    {
+        PlayerPrefs.DeleteAll();
     }
 }

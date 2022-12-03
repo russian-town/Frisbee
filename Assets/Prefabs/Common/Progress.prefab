@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8465839182206735203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8465839182206735206}
+  - component: {fileID: 8465839182206735201}
+  - component: {fileID: 8465839182206735200}
+  m_Layer: 0
+  m_Name: Progress
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8465839182206735206
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8465839182206735203}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8465839182206735201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8465839182206735203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a67e1fe9a5723448c439cc430252cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8465839182206735200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8465839182206735203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e3a1daa014ba9429efe16e1bd25c5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rampMover: {fileID: 0}
+  _coinsSpawner: {fileID: 0}
+  _goldCoin: {fileID: 4561729004817432426, guid: b4908490da4072f4a9c3ded79d4aa605, type: 3}
+  _silverCoin: {fileID: 6406063534665198258, guid: 1963dd991160eef4f92750eb7f7e5734, type: 3}
+  _copperCoin: {fileID: 111193785832184589, guid: 9f89c1c51557e3645937bdaf92289060, type: 3}
+  _stickmanMaterial: {fileID: 2100000, guid: 9c6a8a469d1cce94b97c238046bd5dca, type: 2}
+  _defaultStickmanColor: {r: 0.227451, g: 0.5176471, b: 1, a: 0}

@@ -7,10 +7,10 @@ using UnityEngine;
 public class Game : MonoBehaviour
 {
     [SerializeField] private List<Obstacle> _obstacles;
-    [SerializeField] private CoinsSpawner _coinsSpawner;
     [SerializeField] private RampMover _rampMover;
     [SerializeField] private float _delayBeforeDefeat;
-    [SerializeField] private float _delayBetweenNextLevels;
+    [SerializeField] private float _delayBetweenNextLevel;
+    [SerializeField] private float _delayBetweenStartLevel;
 
     private GameView _gameView;
 
@@ -21,8 +21,6 @@ public class Game : MonoBehaviour
 
     private void OnEnable()
     {
-        _coinsSpawner.GameOver += OnGameOver;
-
         if (_obstacles.Count <= 0)
             return;
 
@@ -31,13 +29,11 @@ public class Game : MonoBehaviour
             obstacle.GameOver += OnGameOver;
         }
 
-        _rampMover.LevelComplete += OnLevelComplete;
+        _rampMover.LevelComplete += StartLevelComplete;
     }
 
     private void OnDisable()
     {
-        _coinsSpawner.GameOver += OnGameOver;
-
         if (_obstacles.Count <= 0)
             return;
 
@@ -46,7 +42,12 @@ public class Game : MonoBehaviour
             obstacle.GameOver -= OnGameOver;
         }
 
-        _rampMover.LevelComplete -= OnLevelComplete;
+        _rampMover.LevelComplete -= StartLevelComplete;
+    }
+
+    private void Start()
+    {
+        StartCoroutine(StartDelay());
     }
 
     private void Pause()
@@ -66,14 +67,27 @@ public class Game : MonoBehaviour
         _gameView.ShowGameOverPanel();
     }
 
-    private void OnLevelComplete()
+    private void StartLevelComplete()
     {
         StartCoroutine(LevelComplete());
     }
 
     private IEnumerator LevelComplete()
     {
-        yield return new WaitForSecondsRealtime(_delayBetweenNextLevels);
+        yield return new WaitForSecondsRealtime(_delayBetweenNextLevel);
         _gameView.ShowLevelCompletePanel();
+    }
+
+    private IEnumerator StartDelay()
+    {
+        Time.timeScale = 0;
+        float delay = Time.realtimeSinceStartup + _delayBetweenStartLevel;
+
+        while(Time.realtimeSinceStartup < delay)
+        {
+            yield return 0;
+        }
+
+        Time.timeScale = 1;
     }
 }

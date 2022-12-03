@@ -1,11 +1,10 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(FrisbeeDetector))]
 
 public class CoinsChecker : MonoBehaviour
 {
-    public event UnityAction<int> CoinEntered;
+    [SerializeField] private Wallet _wallet;
 
     private FrisbeeDetector _frisbeeDetector;
 
@@ -30,7 +29,8 @@ public class CoinsChecker : MonoBehaviour
         {
             if(coinMover.TryGetComponent(out Coin coin))
             {
-                CoinEntered?.Invoke(coin.Amount);
+                coin.ShowAmount();
+                _wallet.AddMoney(coin.Amount);
                 Destroy(coin.gameObject);
             }
         }

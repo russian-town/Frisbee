@@ -43,6 +43,7 @@ public class RampMover : MonoBehaviour
 
     private void Update()
     {
+
         if (transform.localPosition != _positions[_currentPosition])
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, _positions[_currentPosition], Time.deltaTime * _speed);
         else
@@ -58,6 +59,7 @@ public class RampMover : MonoBehaviour
         {
             if (IsCoinCollision(_previousPosition, transform.forward, _distance) == false && IsCoinCollision(transform.position, transform.up, transform.localScale.y) == false)
             {
+                _canCheckCollision = false;
                 LevelComplete?.Invoke();
             }
         }
@@ -65,7 +67,8 @@ public class RampMover : MonoBehaviour
 
     private bool IsCoinCollision(Vector3 position, Vector3 direction, float distance)
     {
-        return Physics.BoxCast(position, transform.localScale / 2f, direction, transform.rotation, distance, _coinsLayer);
+        Vector3 halfScale = new Vector3(transform.localScale.x - _offSet, transform.localScale.y, transform.localScale.z) / 2f;
+        return Physics.BoxCast(position, halfScale, direction, transform.rotation, distance, _coinsLayer);
     }
 
     private void OnTurnEnded(Stickman stickman)

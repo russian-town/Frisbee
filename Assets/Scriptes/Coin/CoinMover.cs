@@ -1,22 +1,20 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-
+[RequireComponent(typeof(Coin))]
 public class CoinMover : FrisbeeMover
 {
     [SerializeField] private float _force;
 
-    private Rigidbody _rigidbody;
+    private Coin _coin;
 
-    private void Start()
+    private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody>();
-        _rigidbody.isKinematic = true;
+        _coin = GetComponent<Coin>();
     }
 
     public void Throw(Vector3 direction)
     {
-        _rigidbody.isKinematic = false;
-        _rigidbody.AddForce(new Vector3(0f, transform.position.y, 0f) + direction * _force, ForceMode.VelocityChange);
+        _coin.UsePhysic(true);
+        _coin.Throw(direction, _force);
     }
 }
