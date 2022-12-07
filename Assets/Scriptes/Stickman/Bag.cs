@@ -16,17 +16,18 @@ public class Bag : MonoBehaviour
         CountFrisbeeChanged?.Invoke(_frisbeeMovers.Count);
     }
 
-    public void RemoveFrisbee(FrisbeeMover frisbeeMover)
+    public int LastCount()
     {
-        if (_frisbeeMovers.Contains(frisbeeMover))
-        {
-            _frisbeeMovers.Remove(frisbeeMover);
-            CountFrisbeeChanged?.Invoke(_frisbeeMovers.Count);
-        }
-    }
+        int count = 0;
 
-    public void RemoveAll()
-    {
-        _frisbeeMovers.Clear();
+        for (int i = 0; i < _frisbeeMovers.Count; i++)
+        {
+            if (_frisbeeMovers[i].gameObject.activeSelf == false)
+                continue;
+            else
+                count++;
+        }
+
+        return count;
     }
 }

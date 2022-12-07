@@ -37,6 +37,7 @@ public class MidleStickman : Stickman
 
     private void OnThrew(FrisbeeMover frisbeeMover)
     {
-        Bag.AddFrisbee(frisbeeMover);
+        if (frisbeeMover.gameObject.activeSelf == true)
+            Bag.AddFrisbee(frisbeeMover);
     }
 }

@@ -21,6 +21,8 @@ public class Game : MonoBehaviour
 
     private void OnEnable()
     {
+        _rampMover.LevelComplete += StartLevelComplete;
+
         if (_obstacles.Count <= 0)
             return;
 
@@ -29,11 +31,12 @@ public class Game : MonoBehaviour
             obstacle.GameOver += OnGameOver;
         }
 
-        _rampMover.LevelComplete += StartLevelComplete;
     }
 
     private void OnDisable()
     {
+        _rampMover.LevelComplete -= StartLevelComplete;
+
         if (_obstacles.Count <= 0)
             return;
 
@@ -42,7 +45,6 @@ public class Game : MonoBehaviour
             obstacle.GameOver -= OnGameOver;
         }
 
-        _rampMover.LevelComplete -= StartLevelComplete;
     }
 
     private void Start()

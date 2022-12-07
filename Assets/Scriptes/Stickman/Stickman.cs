@@ -25,8 +25,6 @@ public abstract class Stickman : MonoBehaviour
     private Coroutine _startThrowFrisbee;
     private Coroutine _startThrowCoins;
 
-    private Material _material;
-
     protected StickmanAnimator Animator => _animator;
     protected StickmanRotater Rotater => _rotater;
     protected Bag Bag => _bag;
@@ -92,13 +90,17 @@ public abstract class Stickman : MonoBehaviour
                 continue;
 
             if (frisbeeMover == _startFrisbee)
+            {
                 frisbeeMover.Init(_startFrisbeePoint);
+                Threw?.Invoke(frisbeeMover);
+            }
             else
+            {
                 frisbeeMover.Init(_nextFrisbeeSpawnPoint);
+            }
 
             frisbeeMover.SetPreviousPosition(frisbeeMover.transform.position);
             frisbeeMover.StartMove(_target.transform.position, _point1.transform.position, _point2.transform.position, transform.position);
-            Threw?.Invoke(frisbeeMover);
             yield return delay;
         }
     }
@@ -121,6 +123,9 @@ public abstract class Stickman : MonoBehaviour
     private void OnMoveEnded(FrisbeeMover frisbeeMover)
     {
         frisbeeMover.MoveEnded -= OnMoveEnded;
+
+        if (frisbeeMover != StartFrisbee)
+            Threw?.Invoke(frisbeeMover);
 
         _currentCount--;
 

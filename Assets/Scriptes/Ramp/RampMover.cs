@@ -7,7 +7,6 @@ public class RampMover : MonoBehaviour
     public event UnityAction LevelComplete;
 
     [SerializeField] private float _speed;
-    [SerializeField] private float _offSet;
     [SerializeField] private FinalStickman _finalStickman;
     [SerializeField] private LayerMask _coinsLayer;
 
@@ -22,7 +21,7 @@ public class RampMover : MonoBehaviour
     private void Awake()
     {
         _previousPosition = transform.position;
-        _distance = transform.localScale.z - _offSet;
+        _distance = transform.localScale.z;
     }
 
     private void OnEnable()
@@ -67,7 +66,7 @@ public class RampMover : MonoBehaviour
 
     private bool IsCoinCollision(Vector3 position, Vector3 direction, float distance)
     {
-        Vector3 halfScale = new Vector3(transform.localScale.x - _offSet, transform.localScale.y, transform.localScale.z) / 2f;
+        Vector3 halfScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z) / 2f;
         return Physics.BoxCast(position, halfScale, direction, transform.rotation, distance, _coinsLayer);
     }
 

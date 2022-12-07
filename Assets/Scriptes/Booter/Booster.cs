@@ -14,7 +14,7 @@ public abstract class Booster : MonoBehaviour
     private int _currentFrisbee = 1;
 
     protected int BoostCount => _boostCount;
-    protected int CurrentFrisbeeCount => _previousBag.FrisbeeMovers.Count; 
+    protected int CurrentFrisbeeCount => _previousBag.LastCount(); 
 
     private void Awake()
     {

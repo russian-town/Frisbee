@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6406063534665198258}
   - component: {fileID: 5703602909907255736}
   - component: {fileID: -3681624116413595962}
+  - component: {fileID: -6496886904591962413}
   m_Layer: 3
   m_Name: CoinSilver
   m_TagString: Untagged
@@ -33,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 325411410766117422}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.668387, y: 0, z: -2.2158604}
-  m_LocalScale: {x: 0.6, y: 0.03, z: 0.6}
+  m_LocalScale: {x: 0.6, y: 0.04, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -237,6 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725ff5d4e5c4bdc468d3c66f6f040963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pushForce: 5
   _amount: 5
   _type: Silver
   _coinAmountView: {fileID: 4688779618139370318, guid: 19ebb31293e1232478e7e9e35a310efa, type: 3}
@@ -261,9 +263,21 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325411410766117422}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 09323ce54cc7c5049878a65c581adbe5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1.0000001}
   m_Center: {x: 0.00000005960464, y: 0, z: -0.00000008940696}
+--- !u!114 &-6496886904591962413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325411410766117422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80db6036c4226684c9588214b89dcbd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

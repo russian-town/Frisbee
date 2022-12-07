@@ -3,6 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Coin : MonoBehaviour
 {
+    [SerializeField] private float _pushForce;
     [SerializeField] private int _amount;
     [SerializeField] private string _type;
     [SerializeField] private CoinAmountView _coinAmountView;
@@ -27,8 +28,13 @@ public class Coin : MonoBehaviour
         _rigidbody.isKinematic = !usePhysic;
     }
 
-    public void Throw(Vector3 direction, float force)
+    public void Throw(Vector3 direction, float throwForce)
     {
-        _rigidbody.AddForce(new Vector3(0f, transform.position.y, 0f) + direction * force, ForceMode.VelocityChange);
+        _rigidbody.AddForce(new Vector3(0f, transform.position.y, 0f) + direction * throwForce, ForceMode.VelocityChange);
+    }
+
+    public void Push()
+    {
+        _rigidbody.AddForce(Vector3.back * _pushForce);
     }
 }

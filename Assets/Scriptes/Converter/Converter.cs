@@ -1,16 +1,18 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(FrisbeeDetector), typeof(ConverterAnimator))]
+[RequireComponent(typeof(FrisbeeDetector), typeof(ConverterAnimator), typeof(AudioSource))]
 
 public class Converter : MonoBehaviour
 {
     public event UnityAction<int> CountFrisbeeChanged;
     public event UnityAction<int, int, int> CoinsCountChanged;
 
+    [SerializeField] private AudioClip _pickUp;
     [SerializeField] private Stickman _lastStickman;
     [SerializeField] private ParticleSystem _smookPoof;
 
+    private AudioSource _audioSource;
     private FrisbeeDetector _frisbeeDetector;
     private ConverterAnimator _animator;
     private int _coinsGold;
@@ -25,6 +27,7 @@ public class Converter : MonoBehaviour
     {
         _frisbeeDetector = GetComponent<FrisbeeDetector>();
         _animator = GetComponent<ConverterAnimator>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -44,6 +47,7 @@ public class Converter : MonoBehaviour
         if (frisbeeMover is CoinMover coinMover == false)
         {
             _frisbeeCount++;
+            _audioSource.PlayOneShot(_pickUp);
             _animator.Shacke();
             _smookPoof.Play();
             CountFrisbeeChanged?.Invoke(_frisbeeCount);

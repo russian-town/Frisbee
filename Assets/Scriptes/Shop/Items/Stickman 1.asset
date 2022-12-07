@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Stickman 1
   m_EditorClassIdentifier: 
   _iconColor: {r: 1, g: 0, b: 0.2760725, a: 1}
-  _price: 1
+  _isRewarded: 0
+  _price: 600

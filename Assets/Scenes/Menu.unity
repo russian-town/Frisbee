@@ -528,6 +528,7 @@ GameObject:
   - component: {fileID: 709310550}
   - component: {fileID: 709310549}
   - component: {fileID: 709310548}
+  - component: {fileID: 709310551}
   m_Layer: 5
   m_Name: ShopButton
   m_TagString: Untagged
@@ -650,6 +651,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709310546}
   m_CullTransparentMesh: 1
+--- !u!114 &709310551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709310546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3858d2941dfed12449c9fc0129fc8a4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _translationText: {fileID: 1865010185}
+  _ruText: "\u041C\u0410\u0413\u0410\u0417\u0418\u041D"
+  _enText: SHOP
+  _trText: PUAN
 --- !u!1 &1066319515
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,8 +702,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -1.0200043, y: 0}
+  m_SizeDelta: {x: -43.07, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1066319517
 MonoBehaviour:
@@ -708,10 +725,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PLAY
+  m_text: OYNA
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 50c12c23294124aa48490c44ac65a9e4, type: 2}
-  m_sharedMaterial: {fileID: 7746803525459343344, guid: 50c12c23294124aa48490c44ac65a9e4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b2fc0bc7d9782a745b9b422ba1184f62, type: 2}
+  m_sharedMaterial: {fileID: 942589445191879500, guid: b2fc0bc7d9782a745b9b422ba1184f62, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -938,6 +955,7 @@ GameObject:
   - component: {fileID: 1312644597}
   - component: {fileID: 1312644596}
   - component: {fileID: 1312644595}
+  - component: {fileID: 1312644598}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -1060,6 +1078,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1312644593}
   m_CullTransparentMesh: 1
+--- !u!114 &1312644598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312644593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3858d2941dfed12449c9fc0129fc8a4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _translationText: {fileID: 1066319517}
+  _ruText: "\u0418\u0413\u0420\u0410\u0422\u042C"
+  _enText: PLAY
+  _trText: OYNA
 --- !u!82 &1419234059 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 3734100294125198129, guid: 92029673da4026148828feb4a5ff3b00, type: 3}
@@ -1205,8 +1239,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.44000244, y: 0}
+  m_SizeDelta: {x: -50.71, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1865010185
 MonoBehaviour:
@@ -1228,10 +1262,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SHOP
+  m_text: PUAN
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 50c12c23294124aa48490c44ac65a9e4, type: 2}
-  m_sharedMaterial: {fileID: 7746803525459343344, guid: 50c12c23294124aa48490c44ac65a9e4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b2fc0bc7d9782a745b9b422ba1184f62, type: 2}
+  m_sharedMaterial: {fileID: 942589445191879500, guid: b2fc0bc7d9782a745b9b422ba1184f62, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1446,6 +1480,53 @@ MonoBehaviour:
   _soundOff: {fileID: 230137505, guid: f405c71e145eb604ba4054404876a1f6, type: 3}
   _musicButton: {fileID: 605309783}
   _soundButton: {fileID: 650370794}
+--- !u!1 &2071631052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2071631054}
+  - component: {fileID: 2071631053}
+  m_Layer: 0
+  m_Name: Localization
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2071631053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071631052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34b4ae2f22638f419fc05792ee4d1e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _localizationDatas:
+  - {fileID: 1312644598}
+  - {fileID: 709310551}
+--- !u!4 &2071631054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071631052}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2084817365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1541,6 +1622,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UISound
       objectReference: {fileID: 0}
+    - target: {fileID: 3734100294125198129, guid: 92029673da4026148828feb4a5ff3b00, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 48661ebb2cb105f49a8ea7a849a06987, type: 3}
     - target: {fileID: 3734100294125198134, guid: 92029673da4026148828feb4a5ff3b00, type: 3}
       propertyPath: m_RootOrder
       value: 7

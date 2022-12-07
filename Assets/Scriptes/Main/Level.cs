@@ -20,7 +20,7 @@ public class Level : MonoBehaviour
         if (nextLevelIndex == SceneManager.sceneCountInBuildSettings)
         {
             SceneManager.LoadScene(FirstLevelIndex);
-            SaveNextLevel(FirstLevelIndex);
+            PlayerPrefs.DeleteKey(LastLevelIndexKey);
         }
         else
         {
@@ -56,7 +56,13 @@ public class Level : MonoBehaviour
     private void SaveNextLevel(int nextLevel)
     {
         if (PlayerPrefs.HasKey(LastLevelIndexKey))
+        {
             if (nextLevel > PlayerPrefs.GetInt(LastLevelIndexKey))
                 PlayerPrefs.SetInt(LastLevelIndexKey, nextLevel);
+        }
+        else
+        {
+            PlayerPrefs.SetInt(LastLevelIndexKey, FirstLevelIndex);
+        }
     }
 }
